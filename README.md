@@ -1,7 +1,7 @@
 # Rendon-TX-Community-Map
 
 ## Project Purpose
-This repository was created for my continuing educational skills for creating GIS web maps.
+This repository was created to continue my GIS skills for creating GIS web maps.
 
 ## Introduction
 This project supports a leaflet map built using the qgis2web plug-in for the QGIS mapping application.  
