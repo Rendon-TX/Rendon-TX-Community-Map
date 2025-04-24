@@ -116,7 +116,8 @@
             abstract.show = function () {
                 this._div.classList.remove("abstract");
                 this._div.classList.add("abstractUncollapsed");
-                this._div.innerHTML = 'Community map of (unincorporated) Rendon, Texas.  The map is for informational purposes and not to be used for engineering or surveying purposes.  Information accuracy is per original data source.  Data sources:  Tax parcels = Tarrant Appraisal District, FM1187 ROW data = from TxDot .pdf downloads (www.txdot.gov).';
+                //Adjusted Abstract w/source website data.
+                this._div.innerHTML = 'Community map of (unincorporated) Rendon, Texas.  The map is for informational purposes and not to be used for engineering or surveying purposes.  Data sources:  Tax parcels = Tarrant Appraisal District (TAD.org), FM1187 ROW data = from Texas Dept. of Transportation (TxDot.gov) .pdf downloads.';
         };
         abstract.addTo(map);
         var zoomControl = L.control.zoom({
