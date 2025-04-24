@@ -49,8 +49,9 @@
         <script src="data/ProposednewFM1187lanes_7.js"></script>
         <script src="data/ProposednewFM1187medians_8.js"></script>
         <script src="data/ProposednewFM1187ROWboundary_9.js"></script>
-        <script src="data/BufferZonefromJ7ReadyMixSite_10.js"></script>
-        <script src="data/J7ReadyMixSite_11.js"></script>
+        <script src="data/StopLights_10.js"></script>
+        <script src="data/BufferZonefromJ7ReadyMixSite_11.js"></script>
+        <script src="data/J7ReadyMixSite_12.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
@@ -114,7 +115,7 @@
             abstract.show = function () {
                 this._div.classList.remove("abstract");
                 this._div.classList.add("abstractUncollapsed");
-                this._div.innerHTML = 'Community map of (unincorporated) Rendon, Texas.  The map is for informational purposes and not to be used for engineering or surveying purposes.  Data sources:  Tax parcels = Tarrant Appraisal District (TAD.org), FM1187 ROW data = from Texas Dept. of Transportation (TxDot.gov) .pdf downloads.';
+                this._div.innerHTML = 'Community map of (unincorporated) Rendon, Texas.  The map is for informational purposes and not to be used for engineering or surveying purposes.  Information accuracy is per original data source.  Data sources:  Tax parcels = Tarrant Appraisal District, FM1187 ROW data = from TxDot .pdf downloads (www.txdot.gov).';
         };
         abstract.addTo(map);
         var zoomControl = L.control.zoom({
@@ -643,7 +644,51 @@
             style: style_ProposednewFM1187ROWboundary_9_0,
         });
         bounds_group.addLayer(layer_ProposednewFM1187ROWboundary_9);
-        function pop_BufferZonefromJ7ReadyMixSite_10(feature, layer) {
+        function pop_StopLights_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_StopLights_10_0() {
+            return {
+                pane: 'pane_StopLights_10',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/StopLights_10.svg',
+            iconSize: [38.0, 38.0]
+        }),
+                interactive: false,
+            }
+        }
+        map.createPane('pane_StopLights_10');
+        map.getPane('pane_StopLights_10').style.zIndex = 410;
+        map.getPane('pane_StopLights_10').style['mix-blend-mode'] = 'normal';
+        var layer_StopLights_10 = new L.geoJson(json_StopLights_10, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_StopLights_10',
+            layerName: 'layer_StopLights_10',
+            pane: 'pane_StopLights_10',
+            onEachFeature: pop_StopLights_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_StopLights_10_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_StopLights_10);
+        function pop_BufferZonefromJ7ReadyMixSite_11(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -659,11 +704,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_BufferZonefromJ7ReadyMixSite_10_0(feature) {
+        function style_BufferZonefromJ7ReadyMixSite_11_0(feature) {
             switch(String(feature.properties['Zone'])) {
                 case '440 Yards':
                     return {
-                pane: 'pane_BufferZonefromJ7ReadyMixSite_10',
+                pane: 'pane_BufferZonefromJ7ReadyMixSite_11',
                 opacity: 1,
                 color: 'rgba(252,5,5,1.0)',
                 dashArray: '',
@@ -676,7 +721,7 @@
                     break;
                 case '880 Yards':
                     return {
-                pane: 'pane_BufferZonefromJ7ReadyMixSite_10',
+                pane: 'pane_BufferZonefromJ7ReadyMixSite_11',
                 opacity: 1,
                 color: 'rgba(250,151,2,1.0)',
                 dashArray: '',
@@ -689,7 +734,7 @@
                     break;
                 case '1 Mile':
                     return {
-                pane: 'pane_BufferZonefromJ7ReadyMixSite_10',
+                pane: 'pane_BufferZonefromJ7ReadyMixSite_11',
                 opacity: 1,
                 color: 'rgba(250,254,3,1.0)',
                 dashArray: '',
@@ -702,7 +747,7 @@
                     break;
                 case '2 Mile':
                     return {
-                pane: 'pane_BufferZonefromJ7ReadyMixSite_10',
+                pane: 'pane_BufferZonefromJ7ReadyMixSite_11',
                 opacity: 1,
                 color: 'rgba(224,254,1,1.0)',
                 dashArray: '',
@@ -715,7 +760,7 @@
                     break;
                 case '3 Mile':
                     return {
-                pane: 'pane_BufferZonefromJ7ReadyMixSite_10',
+                pane: 'pane_BufferZonefromJ7ReadyMixSite_11',
                 opacity: 1,
                 color: 'rgba(146,255,3,1.0)',
                 dashArray: '',
@@ -728,7 +773,7 @@
                     break;
                 case '4 Mile':
                     return {
-                pane: 'pane_BufferZonefromJ7ReadyMixSite_10',
+                pane: 'pane_BufferZonefromJ7ReadyMixSite_11',
                 opacity: 1,
                 color: 'rgba(85,252,2,1.0)',
                 dashArray: '',
@@ -741,7 +786,7 @@
                     break;
                 case '5 Mile':
                     return {
-                pane: 'pane_BufferZonefromJ7ReadyMixSite_10',
+                pane: 'pane_BufferZonefromJ7ReadyMixSite_11',
                 opacity: 1,
                 color: 'rgba(3,253,53,1.0)',
                 dashArray: '',
@@ -754,21 +799,21 @@
                     break;
             }
         }
-        map.createPane('pane_BufferZonefromJ7ReadyMixSite_10');
-        map.getPane('pane_BufferZonefromJ7ReadyMixSite_10').style.zIndex = 410;
-        map.getPane('pane_BufferZonefromJ7ReadyMixSite_10').style['mix-blend-mode'] = 'normal';
-        var layer_BufferZonefromJ7ReadyMixSite_10 = new L.geoJson(json_BufferZonefromJ7ReadyMixSite_10, {
+        map.createPane('pane_BufferZonefromJ7ReadyMixSite_11');
+        map.getPane('pane_BufferZonefromJ7ReadyMixSite_11').style.zIndex = 411;
+        map.getPane('pane_BufferZonefromJ7ReadyMixSite_11').style['mix-blend-mode'] = 'normal';
+        var layer_BufferZonefromJ7ReadyMixSite_11 = new L.geoJson(json_BufferZonefromJ7ReadyMixSite_11, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_BufferZonefromJ7ReadyMixSite_10',
-            layerName: 'layer_BufferZonefromJ7ReadyMixSite_10',
-            pane: 'pane_BufferZonefromJ7ReadyMixSite_10',
-            onEachFeature: pop_BufferZonefromJ7ReadyMixSite_10,
-            style: style_BufferZonefromJ7ReadyMixSite_10_0,
+            dataVar: 'json_BufferZonefromJ7ReadyMixSite_11',
+            layerName: 'layer_BufferZonefromJ7ReadyMixSite_11',
+            pane: 'pane_BufferZonefromJ7ReadyMixSite_11',
+            onEachFeature: pop_BufferZonefromJ7ReadyMixSite_11,
+            style: style_BufferZonefromJ7ReadyMixSite_11_0,
         });
-        bounds_group.addLayer(layer_BufferZonefromJ7ReadyMixSite_10);
-        map.addLayer(layer_BufferZonefromJ7ReadyMixSite_10);
-        function pop_J7ReadyMixSite_11(feature, layer) {
+        bounds_group.addLayer(layer_BufferZonefromJ7ReadyMixSite_11);
+        map.addLayer(layer_BufferZonefromJ7ReadyMixSite_11);
+        function pop_J7ReadyMixSite_12(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -784,9 +829,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_J7ReadyMixSite_11_0() {
+        function style_J7ReadyMixSite_12_0() {
             return {
-                pane: 'pane_J7ReadyMixSite_11',
+                pane: 'pane_J7ReadyMixSite_12',
                 radius: 13.2,
                 opacity: 1,
                 color: 'rgba(184,8,8,1.0)',
@@ -800,9 +845,9 @@
                 interactive: false,
             }
         }
-        function style_J7ReadyMixSite_11_1() {
+        function style_J7ReadyMixSite_12_1() {
             return {
-                pane: 'pane_J7ReadyMixSite_11',
+                pane: 'pane_J7ReadyMixSite_12',
                 radius: 14.4,
                 opacity: 1,
                 color: 'rgba(255,0,0,1.0)',
@@ -816,51 +861,54 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_J7ReadyMixSite_11');
-        map.getPane('pane_J7ReadyMixSite_11').style.zIndex = 411;
-        map.getPane('pane_J7ReadyMixSite_11').style['mix-blend-mode'] = 'normal';
-        var layer_J7ReadyMixSite_11 = new L.geoJson.multiStyle(json_J7ReadyMixSite_11, {
+        map.createPane('pane_J7ReadyMixSite_12');
+        map.getPane('pane_J7ReadyMixSite_12').style.zIndex = 412;
+        map.getPane('pane_J7ReadyMixSite_12').style['mix-blend-mode'] = 'normal';
+        var layer_J7ReadyMixSite_12 = new L.geoJson.multiStyle(json_J7ReadyMixSite_12, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_J7ReadyMixSite_11',
-            layerName: 'layer_J7ReadyMixSite_11',
-            pane: 'pane_J7ReadyMixSite_11',
-            onEachFeature: pop_J7ReadyMixSite_11,
+            dataVar: 'json_J7ReadyMixSite_12',
+            layerName: 'layer_J7ReadyMixSite_12',
+            pane: 'pane_J7ReadyMixSite_12',
+            onEachFeature: pop_J7ReadyMixSite_12,
             pointToLayers: [function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_J7ReadyMixSite_11_0(feature));
+                return L.shapeMarker(latlng, style_J7ReadyMixSite_12_0(feature));
             },function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_J7ReadyMixSite_11_1(feature));
+                return L.shapeMarker(latlng, style_J7ReadyMixSite_12_1(feature));
             },
         ]});
-        bounds_group.addLayer(layer_J7ReadyMixSite_11);
-            map.addLayer(layer_J7ReadyMixSite_11);
+        bounds_group.addLayer(layer_J7ReadyMixSite_12);
+            map.addLayer(layer_J7ReadyMixSite_12);
+
             //COMMENTED OUT Geocoder/Search option to keep find results local --EW 4/24/25--
-        //var osmGeocoder = new L.Control.Geocoder({
-        //    collapsed: true,
-        //    position: 'topleft',
-        //    text: 'Search',
-        //    title: 'Testing'
-        //}).addTo(map);
-        //document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        //.className += ' fa fa-search';
-        //document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        //.title += 'Search for a place';
+            //var osmGeocoder = new L.Control.Geocoder({
+            //    collapsed: true,
+            //    position: 'topleft',
+            //    text: 'Search',
+            //    title: 'Testing'
+            //}).addTo(map);
+            //document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+            //.className += ' fa fa-search';
+            //document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+            //.title += 'Search for a place';
+
         var overlaysTree = [
-            {label: '<img src="legend/J7ReadyMixSite_11.png" /> J7 Ready Mix Site', layer: layer_J7ReadyMixSite_11},
-            {label: 'Buffer Zone from J7 Ready Mix Site<br /><table><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_10_440Yards0.png" /></td><td>440 Yards</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_10_880Yards1.png" /></td><td>880 Yards</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_10_1Mile2.png" /></td><td>1 Mile</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_10_2Mile3.png" /></td><td>2 Mile</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_10_3Mile4.png" /></td><td>3 Mile</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_10_4Mile5.png" /></td><td>4 Mile</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_10_5Mile6.png" /></td><td>5 Mile</td></tr></table>', layer: layer_BufferZonefromJ7ReadyMixSite_10},
+            {label: '<img src="legend/J7ReadyMixSite_12.png" /> J7 Ready Mix Site', layer: layer_J7ReadyMixSite_12},
+            {label: 'Buffer Zone from J7 Ready Mix Site<br /><table><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_11_440Yards0.png" /></td><td>440 Yards</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_11_880Yards1.png" /></td><td>880 Yards</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_11_1Mile2.png" /></td><td>1 Mile</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_11_2Mile3.png" /></td><td>2 Mile</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_11_3Mile4.png" /></td><td>3 Mile</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_11_4Mile5.png" /></td><td>4 Mile</td></tr><tr><td style="text-align: center;"><img src="legend/BufferZonefromJ7ReadyMixSite_11_5Mile6.png" /></td><td>5 Mile</td></tr></table>', layer: layer_BufferZonefromJ7ReadyMixSite_11},
         {label: '<b>Proposed TxDot FM1187 widening</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: '<img src="legend/StopLights_10.png" /> Stop Lights', layer: layer_StopLights_10},
             {label: '<img src="legend/ProposednewFM1187ROWboundary_9.png" /> Proposed new FM1187 ROW boundary', layer: layer_ProposednewFM1187ROWboundary_9},
             {label: 'Proposed new FM1187 medians<br /><table><tr><td style="text-align: center;"><img src="legend/ProposednewFM1187medians_8_Median0.png" /></td><td>Median</td></tr><tr><td style="text-align: center;"><img src="legend/ProposednewFM1187medians_8_AbandonedPavement1.png" /></td><td>Abandoned Pavement</td></tr><tr><td style="text-align: center;"><img src="legend/ProposednewFM1187medians_8_Bridge2.png" /></td><td>Bridge</td></tr></table>', layer: layer_ProposednewFM1187medians_8},
             {label: '<img src="legend/ProposednewFM1187lanes_7.png" /> Proposed new FM1187 lanes', layer: layer_ProposednewFM1187lanes_7},]},
-        {label: '<b>TAD Parcels Apr 2025</b>',  selectAllCheckbox: true, children: [
+        {label: '<b>TAD Parcels Apr 2025</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: '<img src="legend/TADAllParcels_6.png" /> TAD All Parcels', layer: layer_TADAllParcels_6},
             {label: '<img src="legend/TADISDSchoolProperty_5.png" /> TAD ISD School Property', layer: layer_TADISDSchoolProperty_5},
             {label: '<img src="legend/TADParcelResidences_4.png" /> TAD Parcel Residences', layer: layer_TADParcelResidences_4},

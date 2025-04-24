@@ -1,0 +1,1 @@
+var json_J7ReadyMixSite_12 = {"type":"FeatureCollection","name":"J7ReadyMixSite_12","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Name":"Proposed J7 Ready Mix Concrete Plant"},"geometry":{"type":"Point","coordinates":[-97.245827407607521,32.577567263253442]}}]}
