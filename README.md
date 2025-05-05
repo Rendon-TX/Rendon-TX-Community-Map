@@ -14,7 +14,7 @@ the provided ROW data from the Raster layer.  The ROW data provided in this GIS 
 not information purposes only and should not be used for surveying or engineering purposes.
 
 ## Map Data Resources
-GIS vector data provided in map is from free downloaded sources.\
+GIS vector data provided in map is from free downloaded sources.\ 
 	**Tarrant Appraisal District (TAD.org)**\
 	**Texas Commission on Environmental Quality (tceq.texas.gov)**\
 	**Texas Department of Transportation (TXDOT.gov)**\
