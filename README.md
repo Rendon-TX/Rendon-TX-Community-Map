@@ -10,7 +10,7 @@ in the community center of Rendon, Tx. Buffer zones show the distance from the p
 residential areas, that could and may be affected.
 
 Additionally, I have provided the TxDot projected widening and altering the 1187 Farm to Market Road (FM 1187).  This data came from 
-.pdf files I downloaded after attending a TxDot community meeting.  After Geo-referencing the .pdf files into the map, I then digitized all 
+.pdf files I downloaded after attending a TxDot community meeting.  After Geo-referencing the .pdf files into the map, I digitized all 
 the provided ROW data from the Raster layer.  The ROW data provided in this GIS map was not created by an 'on the ground survey' and is for 
 not information purposes only and should not be used for surveying or engineering purposes.
 
