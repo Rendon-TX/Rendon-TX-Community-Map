@@ -172,108 +172,29 @@
         });
         layer_OSMStandardStreetMap_1;
 
-        //Call Dynamic TAD County Boundary --ceb--
-        function pop_TADCountyBoundary_2(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(String(feature.properties['OBJECTID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TDC'] !== null ? autolinker.link(String(feature.properties['TDC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['CO_NAME'] !== null ? autolinker.link(String(feature.properties['CO_NAME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['COUNTY_TEX'] !== null ? autolinker.link(String(feature.properties['COUNTY_TEX']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['GlobalID'] !== null ? autolinker.link(String(feature.properties['GlobalID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_area'] !== null ? autolinker.link(String(feature.properties['Shape_area']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_len'] !== null ? autolinker.link(String(feature.properties['Shape_len']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-        function style_TADCountyBoundary_2_0() {
-            return {
-                pane: 'pane_TADCountyBoundary_2',
-                opacity: 1,
-                color: 'rgba(122,112,112,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 5.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(152,125,183,0.0)',
-                interactive: false,
-            }
-        }
-        function style_TADCountyBoundary_2_1() {
-            return {
-                pane: 'pane_TADCountyBoundary_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '5.0,1.0,2.0,1.0,2.0,1.0',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,0,255,0.0)',
-                interactive: false,
-            }
-        }
-        map.createPane('pane_TADCountyBoundary_2');
-        map.getPane('pane_TADCountyBoundary_2').style.zIndex = 402;
-        map.getPane('pane_TADCountyBoundary_2').style['mix-blend-mode'] = 'normal';
-        var layer_TADCountyBoundary_2 = new L.geoJson.multiStyle(json_TADCountyBoundary_2, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_TADCountyBoundary_2',
-            layerName: 'layer_TADCountyBoundary_2',
-            pane: 'pane_TADCountyBoundary_2',
-            onEachFeature: pop_TADCountyBoundary_2,
-            styles: [style_TADCountyBoundary_2_0,style_TADCountyBoundary_2_1,]
-        });
-        bounds_group.addLayer(layer_TADCountyBoundary_2);
-        map.addLayer(layer_TADCountyBoundary_2);
-
-   //     // Call TAD Parcel Commercial polygons --ceb--
-   //     function pop_TADParcelCommercial_3(feature, layer) {
+   //     //Call Dynamic TAD County Boundary --ceb--
+   //     function pop_TADCountyBoundary_2(feature, layer) {
    //         var popupContent = '<table>\
    //                 <tr>\
    //                     <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(String(feature.properties['OBJECTID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
    //                 </tr>\
    //                 <tr>\
-   //                     <td colspan="2">' + (feature.properties['RP'] !== null ? autolinker.link(String(feature.properties['RP']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+   //                     <td colspan="2">' + (feature.properties['TDC'] !== null ? autolinker.link(String(feature.properties['TDC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
    //                 </tr>\
    //                 <tr>\
-   //                     <td colspan="2">' + (feature.properties['Account_Nu'] !== null ? autolinker.link(String(feature.properties['Account_Nu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+   //                     <td colspan="2">' + (feature.properties['CO_NAME'] !== null ? autolinker.link(String(feature.properties['CO_NAME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
    //                 </tr>\
    //                 <tr>\
-   //                     <td colspan="2">' + (feature.properties['Situs_Addr'] !== null ? autolinker.link(String(feature.properties['Situs_Addr']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+   //                     <td colspan="2">' + (feature.properties['COUNTY_TEX'] !== null ? autolinker.link(String(feature.properties['COUNTY_TEX']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
    //                 </tr>\
    //                 <tr>\
-   //                     <td colspan="2">' + (feature.properties['Property_C'] !== null ? autolinker.link(String(feature.properties['Property_C']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+   //                     <td colspan="2">' + (feature.properties['GlobalID'] !== null ? autolinker.link(String(feature.properties['GlobalID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
    //                 </tr>\
    //                 <tr>\
-   //                     <td colspan="2">' + (feature.properties['State_Use_'] !== null ? autolinker.link(String(feature.properties['State_Use_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+   //                     <td colspan="2">' + (feature.properties['Shape_area'] !== null ? autolinker.link(String(feature.properties['Shape_area']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
    //                 </tr>\
    //                 <tr>\
-   //                     <td colspan="2">' + (feature.properties['LegalDescr'] !== null ? autolinker.link(String(feature.properties['LegalDescr']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-   //                 </tr>\
-   //                 <tr>\
-   //                     <td colspan="2">' + (feature.properties['TypeCode'] !== null ? autolinker.link(String(feature.properties['TypeCode']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+   //                     <td colspan="2">' + (feature.properties['Shape_len'] !== null ? autolinker.link(String(feature.properties['Shape_len']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
    //                 </tr>\
    //             </table>';
    //         var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -282,29 +203,108 @@
 			//});
 			//layer.bindPopup(content, { maxHeight: 400 });
    //     }
-   //     function style_TADParcelCommercial_3_0() {
+   //     function style_TADCountyBoundary_2_0() {
    //         return {
-   //             pane: 'pane_TADParcelCommercial_3',
-   //             stroke: false, 
+   //             pane: 'pane_TADCountyBoundary_2',
+   //             opacity: 1,
+   //             color: 'rgba(122,112,112,1.0)',
+   //             dashArray: '',
+   //             lineCap: 'butt',
+   //             lineJoin: 'miter',
+   //             weight: 5.0, 
    //             fill: true,
    //             fillOpacity: 1,
-   //             fillColor: 'rgba(238,219,145,0.6)',
+   //             fillColor: 'rgba(152,125,183,0.0)',
    //             interactive: false,
    //         }
    //     }
-   //     map.createPane('pane_TADParcelCommercial_3');
-   //     map.getPane('pane_TADParcelCommercial_3').style.zIndex = 403;
-   //     map.getPane('pane_TADParcelCommercial_3').style['mix-blend-mode'] = 'normal';
-   //     var layer_TADParcelCommercial_3 = new L.geoJson(json_TADParcelCommercial_3, {
+   //     function style_TADCountyBoundary_2_1() {
+   //         return {
+   //             pane: 'pane_TADCountyBoundary_2',
+   //             opacity: 1,
+   //             color: 'rgba(35,35,35,1.0)',
+   //             dashArray: '5.0,1.0,2.0,1.0,2.0,1.0',
+   //             lineCap: 'butt',
+   //             lineJoin: 'miter',
+   //             weight: 1.0, 
+   //             fill: true,
+   //             fillOpacity: 1,
+   //             fillColor: 'rgba(0,0,255,0.0)',
+   //             interactive: false,
+   //         }
+   //     }
+   //     map.createPane('pane_TADCountyBoundary_2');
+   //     map.getPane('pane_TADCountyBoundary_2').style.zIndex = 402;
+   //     map.getPane('pane_TADCountyBoundary_2').style['mix-blend-mode'] = 'normal';
+   //     var layer_TADCountyBoundary_2 = new L.geoJson.multiStyle(json_TADCountyBoundary_2, {
    //         attribution: '',
    //         interactive: false,
-   //         dataVar: 'json_TADParcelCommercial_3',
-   //         layerName: 'layer_TADParcelCommercial_3',
-   //         pane: 'pane_TADParcelCommercial_3',
-   //         onEachFeature: pop_TADParcelCommercial_3,
-   //         style: style_TADParcelCommercial_3_0,
+   //         dataVar: 'json_TADCountyBoundary_2',
+   //         layerName: 'layer_TADCountyBoundary_2',
+   //         pane: 'pane_TADCountyBoundary_2',
+   //         onEachFeature: pop_TADCountyBoundary_2,
+   //         styles: [style_TADCountyBoundary_2_0,style_TADCountyBoundary_2_1,]
    //     });
-   //     bounds_group.addLayer(layer_TADParcelCommercial_3);
+   //     bounds_group.addLayer(layer_TADCountyBoundary_2);
+   //     map.addLayer(layer_TADCountyBoundary_2);
+
+        // Call TAD Parcel Commercial polygons --ceb--
+        function pop_TADParcelCommercial_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(String(feature.properties['OBJECTID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['RP'] !== null ? autolinker.link(String(feature.properties['RP']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Account_Nu'] !== null ? autolinker.link(String(feature.properties['Account_Nu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Situs_Addr'] !== null ? autolinker.link(String(feature.properties['Situs_Addr']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Property_C'] !== null ? autolinker.link(String(feature.properties['Property_C']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['State_Use_'] !== null ? autolinker.link(String(feature.properties['State_Use_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LegalDescr'] !== null ? autolinker.link(String(feature.properties['LegalDescr']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TypeCode'] !== null ? autolinker.link(String(feature.properties['TypeCode']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_TADParcelCommercial_3_0() {
+            return {
+                pane: 'pane_TADParcelCommercial_3',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(238,219,145,0.6)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_TADParcelCommercial_3');
+        map.getPane('pane_TADParcelCommercial_3').style.zIndex = 403;
+        map.getPane('pane_TADParcelCommercial_3').style['mix-blend-mode'] = 'normal';
+        var layer_TADParcelCommercial_3 = new L.geoJson(json_TADParcelCommercial_3, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_TADParcelCommercial_3',
+            layerName: 'layer_TADParcelCommercial_3',
+            pane: 'pane_TADParcelCommercial_3',
+            onEachFeature: pop_TADParcelCommercial_3,
+            style: style_TADParcelCommercial_3_0,
+        });
+        bounds_group.addLayer(layer_TADParcelCommercial_3);
 
    //     // Call TAD Parcel Residence polygons --ceb--
    //     function pop_TADParcelResidences_4(feature, layer) {
