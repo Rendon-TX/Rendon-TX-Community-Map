@@ -913,17 +913,19 @@
         bounds_group.addLayer(layer_J7ReadyMixSite_12);
             map.addLayer(layer_J7ReadyMixSite_12);
 
-            COMMENTED OUT Geocoder/Search option to keep find results local --EW 4/24/25--
-            var osmGeocoder = new L.Control.Geocoder({
-                collapsed: true,
-                position: 'topleft',
-                text: 'Search',
-                title: 'Testing'
-            }).addTo(map);
-            document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-            .className += ' fa fa-search';
-            document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-            .title += 'Search for a place';
+            /*
+            //COMMENTED OUT Geocoder/Search option to keep find results local --ceb 4/24/25--
+            //var osmGeocoder = new L.Control.Geocoder({
+            //    collapsed: true,
+            //    position: 'topleft',
+            //    text: 'Search',
+            //    title: 'Testing'
+            //}).addTo(map);
+            //document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+            //.className += ' fa fa-search';
+            //document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+            //.title += 'Search for a place';
+            */
 
         //Legend Controls and format
         var overlaysTree = [
