@@ -285,11 +285,13 @@
         function style_TADParcelCommercial_3_0() {
             return {
                 pane: 'pane_TADParcelCommercial_3',
-                stroke: false, 
+                //stroke: false, 
+                stroke: true, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(238,219,145,0.6)',
-                interactive: false,
+                //interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_TADParcelCommercial_3');
@@ -297,7 +299,8 @@
         map.getPane('pane_TADParcelCommercial_3').style['mix-blend-mode'] = 'normal';
         var layer_TADParcelCommercial_3 = new L.geoJson(json_TADParcelCommercial_3, {
             attribution: '',
-            interactive: false,
+            //interactive: false,
+            interactive: true,
             dataVar: 'json_TADParcelCommercial_3',
             layerName: 'layer_TADParcelCommercial_3',
             pane: 'pane_TADParcelCommercial_3',
